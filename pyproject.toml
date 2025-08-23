@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "novara"
+version = "1.0.0"
+authors = [
+  { name="ukr", email="ujjwalkrai@gmail.com" },
+]
+description = "A movie and anime recommendation app."
+readme = "docs/README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "streamlit",
+    "requests",
+    "google-generativeai",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/nova-cortex/novara"
+"Bug Tracker" = "https://github.com/nova-cortex/novara/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
