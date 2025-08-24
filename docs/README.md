@@ -24,6 +24,16 @@
 </div>
 
 ---
+## 📹 Prototype
+
+<div align="center">
+  <a href="../assets/video/Novara%20-%20Setup%20%2B%20Prototype.mp4" target="_blank">
+    <video src="../assets/video/Novara - Setup + Prototype.mp4" alt="Novara Prototype Video" width="100%"></video>
+  </a>
+  <p><em>Novara Prototype Video</em></p>
+</div>
+
+---
 ## 🎉 What’s New in v1.0.0
 
 - **Initial Release**

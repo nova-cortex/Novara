@@ -24,7 +24,6 @@ st.set_page_config(
 
 
 def main():
-    """Main application function"""
     load_css()
 
     st.markdown(

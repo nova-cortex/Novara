@@ -25,9 +25,8 @@ class GeminiAI:
             Keep responses concise but informative. You can discuss plot, themes, characters, 
             production details, and recommendations."""
 
-            # Initialize chat session with context
             self.chat_session = self.model.start_chat(history=[])
-            # Send the context as the first message to set up the conversation
+
             self.chat_session.send_message(context_prompt)
             return True
         except Exception as e:
@@ -39,7 +38,6 @@ class GeminiAI:
             return "AI service unavailable"
 
         try:
-            # If no chat session exists, create a new one
             if not self.chat_session:
                 self.chat_session = self.model.start_chat(history=[])
             
