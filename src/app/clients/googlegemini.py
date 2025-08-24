@@ -1,7 +1,6 @@
 import os
 import streamlit as st
-from google.generativeai.client import configure
-from google.generativeai.generative_models import GenerativeModel
+import google.generativeai as genai
 from typing import List
 
 
@@ -9,8 +8,8 @@ class GeminiAI:
     def __init__(self):
         try:
             api_key = os.getenv("GOOGLE_GEMINI_API_KEY")
-            configure(api_key=api_key)
-            self.model = GenerativeModel("gemini-1.5-flash")
+            genai.configure(api_key=api_key)
+            self.model = genai.GenerativeModel("gemini-1.5-flash")
             self.chat_session = None
         except Exception as e:
             st.error(f"Error initializing Gemini: {e}")
@@ -26,21 +25,28 @@ class GeminiAI:
             Keep responses concise but informative. You can discuss plot, themes, characters, 
             production details, and recommendations."""
 
+            # Initialize chat session with context
             self.chat_session = self.model.start_chat(history=[])
+            # Send the context as the first message to set up the conversation
+            self.chat_session.send_message(context_prompt)
             return True
         except Exception as e:
             st.error(f"Error initializing chat: {e}")
             return False
 
     def chat_about_movie(self, message: str) -> str:
-        if not self.model or not self.chat_session:
-            return "Chat service unavailable"
+        if not self.model:
+            return "AI service unavailable"
 
         try:
+            # If no chat session exists, create a new one
+            if not self.chat_session:
+                self.chat_session = self.model.start_chat(history=[])
+            
             response = self.chat_session.send_message(message)
             return response.text
         except Exception as e:
-            return f"Error in chat: {e}"
+            return f"Error in chat: {str(e)}"
 
     def generate_summary(self, plot: str) -> str:
         if not self.model:
