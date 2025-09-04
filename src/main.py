@@ -160,7 +160,7 @@ def main():
     <div style="margin-top: 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);">
         <p style="color: #9ca3af; font-size: 0.9rem;">
             🎬 Powered by OMDB, Jikan & Google Gemini APIs<br>
-            Made with ❤️ using Streamlit • Your entertainment companion
+            Made with ❤️ using Streamlit
         </p>
     </div>
     """,
